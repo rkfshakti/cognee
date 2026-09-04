@@ -1,4 +1,4 @@
-name: test | Published Docker image validation (scheduled)
+name: test | Docker image validation (scheduled)
 
 on:
   schedule:
@@ -13,28 +13,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate-published-images:
-    name: "${{ matrix.image }}:${{ matrix.tag }}"
+  build-and-validate:
+    name: "build & validate ${{ matrix.name }}"
     runs-on: ubuntu-22.04
-    timeout-minutes: 30
+    timeout-minutes: 60
     strategy:
       fail-fast: false
-      # max_bytes are generous uncompressed-size ceilings (docker inspect .Size
-      # reports the uncompressed size). They are meant to catch runaway growth,
-      # not to be tight; tune down once real sizes are known from a first run.
       matrix:
         include:
-          - image: cognee/cognee
-            tag: main
+          - name: cognee
+            dockerfile: Dockerfile
+            context: .
             max_bytes: "6442450944"
-          - image: cognee/cognee
-            tag: latest
-            max_bytes: "6442450944"
-          - image: cognee/cognee-mcp
-            tag: main
-            max_bytes: "10737418240"
-          - image: cognee/cognee-mcp
-            tag: latest
+          - name: cognee-mcp
+            dockerfile: cognee-mcp/Dockerfile
+            context: .
             max_bytes: "10737418240"
 
     steps:
@@ -46,10 +39,18 @@ jobs:
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
           df -h
 
+      - name: Build image locally
+        run: |
+          docker buildx build --platform linux/amd64 \
+            --file "${{ matrix.dockerfile }}" \
+            --tag "${{ matrix.name }}:validation" \
+            --load \
+            "${{ matrix.context }}"
+
       - name: Trivy scan (fail on CRITICAL)
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25  # v0.36.0
         with:
-          image-ref: ${{ matrix.image }}:${{ matrix.tag }}
+          image-ref: ${{ matrix.name }}:validation
           severity: CRITICAL
           exit-code: "1"
           ignore-unfixed: true
@@ -58,6 +59,6 @@ jobs:
         run: |
           chmod +x scripts/docker_validation.sh
           scripts/docker_validation.sh \
-            "${{ matrix.image }}" \
-            "${{ matrix.tag }}" \
+            "${{ matrix.name }}" \
+            validation \
             "${{ matrix.max_bytes }}"

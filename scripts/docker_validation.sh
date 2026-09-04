@@ -17,8 +17,10 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo "=== Pull ${FULL_IMAGE} ==="
-docker pull "$FULL_IMAGE"
+echo "=== Pull ${FULL_IMAGE} (skipped when the image already exists locally) ==="
+# Locally built images (see docker_validation_nightly.yml) are already present;
+# `docker pull` on a local-only tag fails, so only pull what's absent.
+docker image inspect "$FULL_IMAGE" >/dev/null 2>&1 || docker pull "$FULL_IMAGE"
 
 echo "=== Check HEALTHCHECK in image metadata ==="
 # Published Hub images only gain a HEALTHCHECK after new images are built and
