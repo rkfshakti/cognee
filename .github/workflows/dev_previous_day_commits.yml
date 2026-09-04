@@ -39,7 +39,19 @@ jobs:
           fetch-depth: 0
 
       - name: Fetch latest dev branch
-        run: git fetch origin dev:refs/remotes/origin/dev --no-tags
+        env:
+          CANONICAL_REPO: ${{ vars.CANONICAL_REPO || 'topoteretes/cognee' }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin dev >/dev/null 2>&1; then
+            git fetch origin dev:refs/remotes/origin/dev --no-tags
+          else
+            # Forks don't mirror the dev integration branch; fetch it from the
+            # canonical repo so scheduled runs keep working there. The merge
+            # scan still runs against a real dev ref, it's just remote's.
+            git remote add upstream "https://github.com/${CANONICAL_REPO}.git" 2>/dev/null || true
+            git fetch upstream dev:refs/remotes/origin/dev --no-tags
+          fi
 
       - name: Prepare merged PRs
         id: prepare
@@ -96,7 +108,19 @@ jobs:
         run: uv sync --locked
 
       - name: Fetch latest dev branch
-        run: git fetch origin dev:refs/remotes/origin/dev --no-tags
+        env:
+          CANONICAL_REPO: ${{ vars.CANONICAL_REPO || 'topoteretes/cognee' }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin dev >/dev/null 2>&1; then
+            git fetch origin dev:refs/remotes/origin/dev --no-tags
+          else
+            # Forks don't mirror the dev integration branch; fetch it from the
+            # canonical repo so scheduled runs keep working there. The branch
+            # materialization still reads a real dev ref, just not origin's.
+            git remote add upstream "https://github.com/${CANONICAL_REPO}.git" 2>/dev/null || true
+            git fetch upstream dev:refs/remotes/origin/dev --no-tags
+          fi
 
       - name: Prepare branch note paths
         id: branch_paths
