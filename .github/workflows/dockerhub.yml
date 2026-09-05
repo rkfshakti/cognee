@@ -8,11 +8,30 @@ on:
 permissions:
   contents: read
 
+# Fork-safety: skip when the org-owned Docker Hub credentials are absent
+# (a fork cannot push to cognee/* anyway). Gate-job pattern, not a job-level
+# `if:` reading secrets — GitHub rejects that on this repo (startup failure,
+# zero jobs); see dockerhub-ui.yml.
 jobs:
+  secret-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      has_secrets: ${{ steps.check.outputs.has_secrets }}
+    steps:
+      - id: check
+        env:
+          U: ${{ secrets.DOCKER_USERNAME }}
+          P: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          if [ -n "$U" ] && [ -n "$P" ]; then
+            echo "has_secrets=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_secrets=false" >> "$GITHUB_OUTPUT"
+          fi
+
   docker-build-and-push:
-    # Fork-safety: skip when the org-owned Docker Hub credentials are absent
-    # (a fork cannot push to cognee/* anyway); see dockerhub-ui.yml.
-    if: ${{ secrets.DOCKER_USERNAME != '' && secrets.DOCKER_PASSWORD != '' }}
+    needs: secret-gate
+    if: needs.secret-gate.outputs.has_secrets == 'true'
     runs-on: ubuntu-latest
 
     steps:
