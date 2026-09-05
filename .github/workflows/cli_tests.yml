@@ -41,6 +41,7 @@ env:
   ENV: 'dev'
   COGNEE_SKIP_CONNECTION_TEST: 'true'
 
+jobs:
   secret-gate:
     # Fork-safety: the integration/functionality jobs make real LLM calls
     # (LLM_API_KEY); a fork without the secret fails them every run. The gate
