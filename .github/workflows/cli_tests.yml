@@ -73,6 +73,8 @@ jobs:
 
   cli-integration-tests:
     name: CLI Integration Tests
+    # Fork-safety: real LLM calls (LLM_API_KEY); skip on forks without it.
+    if: ${{ secrets.LLM_API_KEY != '' }}
     runs-on: ubuntu-22.04
     container: ${{ inputs.ci-image != '' && fromJSON(format('{{"image":"{0}","credentials":{{"username":"{1}","password":"{2}"}}}}', inputs.ci-image, github.actor, github.token)) || null }}
     env:
@@ -108,6 +110,8 @@ jobs:
 
   cli-functionality-tests:
     name: CLI Functionality Tests
+    # Fork-safety: real LLM calls (LLM_API_KEY); skip on forks without it.
+    if: ${{ secrets.LLM_API_KEY != '' }}
     runs-on: ubuntu-22.04
     container: ${{ inputs.ci-image != '' && fromJSON(format('{{"image":"{0}","credentials":{{"username":"{1}","password":"{2}"}}}}', inputs.ci-image, github.actor, github.token)) || null }}
     env:

@@ -10,6 +10,9 @@ permissions:
 
 jobs:
   docker-build-and-push:
+    # Fork-safety: skip when the org-owned Docker Hub credentials are absent
+    # (a fork cannot push to cognee/* anyway); see dockerhub-ui.yml.
+    if: ${{ secrets.DOCKER_USERNAME != '' && secrets.DOCKER_PASSWORD != '' }}
     runs-on:
       group: Default
       labels:
