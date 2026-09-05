@@ -46,6 +46,10 @@ permissions:
 jobs:
   dispatch:
     name: Dispatch Nightly Tests
+    # Fork-safety: the nightly's perf arms need org-owned AWS/Slack/LLM
+    # secrets that a fork does not carry. Dispatching into a guaranteed-red
+    # run just farms notifications, so skip when the S3 credentials are absent.
+    if: ${{ secrets.AWS_S3_DEV_USER_KEY_ID != '' && secrets.SLACK_NIGHTLY_BOT_TOKEN != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

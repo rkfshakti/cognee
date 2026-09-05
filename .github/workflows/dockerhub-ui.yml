@@ -8,9 +8,18 @@ on:
 permissions:
   contents: read
 
+# Fork-safety: this job publishes to Docker Hub with org-owned credentials.
+# A fork without the DOCKER_USERNAME/DOCKER_PASSWORD secrets fails here on
+# every push (Login: "Username and password required"), so the job self-skips
+# until the secrets exist.
+concurrency:
+  group: dockerhub-ui-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   docker-build-and-push:
     runs-on: ubuntu-latest
+    if: ${{ secrets.DOCKER_USERNAME != '' && secrets.DOCKER_PASSWORD != '' }}
 
     steps:
       - name: Checkout repository

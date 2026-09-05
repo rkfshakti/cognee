@@ -36,6 +36,9 @@ concurrency:
 
 jobs:
   telemetry-insights:
+    # Fork-safety: needs org-owned warehouse + Anthropic credentials; skip
+    # rather than fail daily on forks where the secrets are absent.
+    if: ${{ secrets.MOTHERDUCK_TOKEN != '' && secrets.ANTHROPIC_API_KEY != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
