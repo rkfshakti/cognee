@@ -29,6 +29,27 @@ concurrency:
 
 jobs:
 
+  secret-gate:
+    # Fork-safety: several jobs below make real LLM calls. A fork without the
+    # LLM secrets fails them every run (ProviderConfigMismatchError), so the
+    # gate exposes what is available. Gate-job pattern, not a job-level `if:`
+    # reading secrets — GitHub rejects that on this repo (startup failure,
+    # zero jobs); see dockerhub-ui.yml.
+    runs-on: ubuntu-latest
+    outputs:
+      has_llm_key: ${{ steps.check.outputs.has_llm_key }}
+    steps:
+      - id: check
+        env:
+          OPENAI: ${{ secrets.OPENAI_API_KEY }}
+          LLM: ${{ secrets.LLM_API_KEY }}
+        run: |
+          if [ -n "$OPENAI" ] || [ -n "$LLM" ]; then
+            echo "has_llm_key=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_llm_key=false" >> "$GITHUB_OUTPUT"
+          fi
+
   mcp-test:
     name: MCP Tests
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository }}
@@ -47,6 +68,7 @@ jobs:
 
   cot-retriever-test:
     name: COT Retriever Test
+    needs: secret-gate
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository }}
     runs-on: ubuntu-latest
     steps:
@@ -71,7 +93,7 @@ jobs:
       - name: Run COT retriever integration test
         # Fork-safety: the test makes real LLM calls (OPENAI_API_KEY). On a
         # fork without the secret the run is guaranteed red, so skip instead.
-        if: ${{ secrets.OPENAI_API_KEY != '' }}
+        if: needs.secret-gate.outputs.has_llm_key == 'true'
         env:
           LLM_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           LLM_ARGS: ${{ secrets.LLM_ARGS }}

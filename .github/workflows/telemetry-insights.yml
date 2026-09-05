@@ -34,11 +34,30 @@ concurrency:
   group: telemetry-insights
   cancel-in-progress: false
 
+# Fork-safety: needs org-owned warehouse + Anthropic credentials; skip
+# rather than fail daily on forks where the secrets are absent. Gate-job
+# pattern, not a job-level `if:` reading secrets — GitHub rejects that on
+# this repo (startup failure, zero jobs); see dockerhub-ui.yml.
 jobs:
+  secret-gate:
+    runs-on: ubuntu-latest
+    outputs:
+      has_secrets: ${{ steps.check.outputs.has_secrets }}
+    steps:
+      - id: check
+        env:
+          M: ${{ secrets.MOTHERDUCK_TOKEN }}
+          A: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$M" ] && [ -n "$A" ]; then
+            echo "has_secrets=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_secrets=false" >> "$GITHUB_OUTPUT"
+          fi
+
   telemetry-insights:
-    # Fork-safety: needs org-owned warehouse + Anthropic credentials; skip
-    # rather than fail daily on forks where the secrets are absent.
-    if: ${{ secrets.MOTHERDUCK_TOKEN != '' && secrets.ANTHROPIC_API_KEY != '' }}
+    needs: secret-gate
+    if: needs.secret-gate.outputs.has_secrets == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:

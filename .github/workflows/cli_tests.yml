@@ -41,7 +41,26 @@ env:
   ENV: 'dev'
   COGNEE_SKIP_CONNECTION_TEST: 'true'
 
-jobs:
+  secret-gate:
+    # Fork-safety: the integration/functionality jobs make real LLM calls
+    # (LLM_API_KEY); a fork without the secret fails them every run. The gate
+    # exposes what is available. Gate-job pattern, not a job-level `if:`
+    # reading secrets — GitHub rejects that on this repo (startup failure,
+    # zero jobs); see dockerhub-ui.yml.
+    runs-on: ubuntu-latest
+    outputs:
+      has_llm_key: ${{ steps.check.outputs.has_llm_key }}
+    steps:
+      - id: check
+        env:
+          K: ${{ secrets.LLM_API_KEY }}
+        run: |
+          if [ -n "$K" ]; then
+            echo "has_llm_key=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_llm_key=false" >> "$GITHUB_OUTPUT"
+          fi
+
   cli-unit-tests:
     name: CLI Unit Tests
     if: ${{ inputs.cognee_version == 'local' }}
@@ -74,7 +93,8 @@ jobs:
   cli-integration-tests:
     name: CLI Integration Tests
     # Fork-safety: real LLM calls (LLM_API_KEY); skip on forks without it.
-    if: ${{ secrets.LLM_API_KEY != '' }}
+    needs: secret-gate
+    if: needs.secret-gate.outputs.has_llm_key == 'true'
     runs-on: ubuntu-22.04
     container: ${{ inputs.ci-image != '' && fromJSON(format('{{"image":"{0}","credentials":{{"username":"{1}","password":"{2}"}}}}', inputs.ci-image, github.actor, github.token)) || null }}
     env:
@@ -111,7 +131,8 @@ jobs:
   cli-functionality-tests:
     name: CLI Functionality Tests
     # Fork-safety: real LLM calls (LLM_API_KEY); skip on forks without it.
-    if: ${{ secrets.LLM_API_KEY != '' }}
+    needs: secret-gate
+    if: needs.secret-gate.outputs.has_llm_key == 'true'
     runs-on: ubuntu-22.04
     container: ${{ inputs.ci-image != '' && fromJSON(format('{{"image":"{0}","credentials":{{"username":"{1}","password":"{2}"}}}}', inputs.ci-image, github.actor, github.token)) || null }}
     env:

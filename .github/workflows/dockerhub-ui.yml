@@ -10,16 +10,39 @@ permissions:
 
 # Fork-safety: this job publishes to Docker Hub with org-owned credentials.
 # A fork without the DOCKER_USERNAME/DOCKER_PASSWORD secrets fails here on
-# every push (Login: "Username and password required"), so the job self-skips
+# every push (Login: "Username and password required"), so it self-skips
 # until the secrets exist.
+#
+# The check runs in a GATE JOB, not in a job-level `if:` — GitHub rejects a
+# workflow file whose job `if:` reads the secrets context on this repo
+# (startup failure with zero jobs; verified by probe). A gate job reads the
+# secret in a step, publishes `has_secrets` as an output, and the publish job
+# keys off it.
 concurrency:
   group: dockerhub-ui-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  docker-build-and-push:
+  secret-gate:
     runs-on: ubuntu-latest
-    if: ${{ secrets.DOCKER_USERNAME != '' && secrets.DOCKER_PASSWORD != '' }}
+    outputs:
+      has_secrets: ${{ steps.check.outputs.has_secrets }}
+    steps:
+      - id: check
+        env:
+          U: ${{ secrets.DOCKER_USERNAME }}
+          P: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          if [ -n "$U" ] && [ -n "$P" ]; then
+            echo "has_secrets=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_secrets=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  docker-build-and-push:
+    needs: secret-gate
+    if: needs.secret-gate.outputs.has_secrets == 'true'
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
