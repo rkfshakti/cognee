@@ -93,6 +93,11 @@ concurrency:
 jobs:
   sync-spec-extras:
     name: Detect and fix spec extras drift
+    # Canonical repo only: the scheduled run checks out the `dev` branch,
+    # which does not exist on a fork (upstream's default is main), so the
+    # checkout step fails every Wednesday on forks. workflow_dispatch stays
+    # available everywhere so a feature branch can still be dry-run.
+    if: github.repository == 'topoteretes/cognee' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-22.04
     timeout-minutes: 30
 
