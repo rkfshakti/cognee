@@ -3,10 +3,7 @@ name = "cognee-mcp"
 version = "0.5.6"
 description = "Cognee MCP server"
 readme = "README.md"
-# Upper bound is real, not defensive: cognee[docs] -> unstructured -> spacy, and
-# spacy ships no cp314 wheel and no sdist, so `uv sync` hard-fails on 3.14 even
-# though `uv lock --check` passes. Verified installing on 3.10-3.13.
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.10"
 
 dependencies = [
     # spacy 3.8.14 dropped cp314 wheels (3.8.10-3.8.13 had them); pin so the
