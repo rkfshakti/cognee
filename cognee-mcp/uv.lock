@@ -6,16 +6,16 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
-    "python_full_version < '3.11' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version < '3.11' and sys_platform == 'linux'",
+    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 
@@ -29,8 +29,9 @@ cognee = { timestamp = "0001-01-01T00:00:00Z", span = "PT0S" }
 
 [manifest]
 constraints = [
-    { name = "onnxruntime", marker = "python_full_version < '3.14'", specifier = "<=1.23.2" },
-    { name = "onnxruntime", marker = "python_full_version >= '3.14'", specifier = ">=1.24.1" },
+    { name = "onnxruntime", marker = "python_full_version < '3.13'", specifier = "<=1.23.2" },
+    { name = "onnxruntime", marker = "python_full_version >= '3.13'", specifier = ">=1.25.0" },
+    { name = "unstructured", marker = "python_full_version >= '3.13'", specifier = ">=0.24.0" },
 ]
 
 [[package]]
@@ -79,13 +80,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -743,13 +744,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/75/c8/82b3c760141a1076408164b03e8789b51809add6aecd48aa9d7651cf6b59/caio-0.12.2.tar.gz", hash = "sha256:87a67c0dccc60e432888bd532ec504b66e124a5d8b391aab894583b55abd39ea", size = 80927, upload-time = "2026-08-04T14:43:33.726Z" }
@@ -1145,7 +1146,7 @@ docs = [
     { name = "lxml", version = "6.1.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
     { name = "nltk" },
     { name = "unstructured", version = "0.18.32", source = { registry = "https://pypi.org/simple" }, extra = ["csv", "doc", "docx", "epub", "md", "odt", "org", "pdf", "ppt", "pptx", "rst", "rtf", "tsv", "xlsx"], marker = "python_full_version < '3.13'" },
-    { name = "unstructured", version = "0.22.23", source = { registry = "https://pypi.org/simple" }, extra = ["csv", "doc", "docx", "epub", "md", "odt", "org", "pdf", "ppt", "pptx", "rst", "rtf", "tsv", "xlsx"], marker = "python_full_version >= '3.13'" },
+    { name = "unstructured", version = "0.27.6", source = { registry = "https://pypi.org/simple" }, extra = ["csv", "doc", "docx", "epub", "md", "odt", "org", "pdf", "ppt", "pptx", "rst", "rtf", "tsv", "xlsx"], marker = "python_full_version >= '3.13'" },
 ]
 neo4j = [
     { name = "neo4j" },
@@ -1318,13 +1319,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -3045,12 +3046,12 @@ resolution-markers = [
     "python_full_version >= '3.14' and sys_platform == 'linux'",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
-    "python_full_version < '3.11' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
+    "python_full_version < '3.11' and sys_platform == 'linux'",
     "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/65/f7/0ef0a9616d622c790c7fd559d10eb0fdd320c5880e79da035d0b23d2ab8d/ladybug-0.19.0.tar.gz", hash = "sha256:02a0725d29b36fd0de469dab14928c3bc8c5dfee4019acfd60ca504caffc4cd7", size = 10301849, upload-time = "2026-07-30T00:36:34.015Z" }
@@ -3293,13 +3294,13 @@ version = "4.9.4"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
-    "python_full_version < '3.11' and sys_platform == 'linux'",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version < '3.11' and sys_platform == 'linux'",
+    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/84/14/c2070b5e37c650198de8328467dd3d1681e80986f81ba0fea04fc4ec9883/lxml-4.9.4.tar.gz", hash = "sha256:b1541e50b78e15fa06a2670157a1962ef06591d4c998b998047fff5e3236880e", size = 3576664, upload-time = "2023-12-19T19:37:24.296Z" }
@@ -3807,13 +3808,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -4248,18 +4249,52 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz", hash = "sha256:26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509", size = 2517025, upload-time = "2025-12-08T17:02:39.908Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl", hash = "sha256:d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762", size = 2068504, upload-time = "2025-12-08T17:02:38.159Z" },
+]
+
+[[package]]
+name = "nh3"
+version = "0.3.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/18/2f/022b27146d52d24b1b353b003359134788ecbcd6fcdf6283adbd57c0fbc8/nh3-0.3.7.tar.gz", hash = "sha256:71860d01c16f4d8c72e334e0674beb2b0899dbd0bf760de18932ef4390303848", size = 25662, upload-time = "2026-08-23T14:26:30.728Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ce/88/b594f0e86856b37e182fb663283da419eea6424972506e640e890885467f/nh3-0.3.7-cp314-cp314t-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:91a4dab4e94d9fc54b9f67b1adfb23e81fab7ab43f33c3b8c97be9aa38f789ba", size = 1471147, upload-time = "2026-08-23T14:25:55.259Z" },
+    { url = "https://files.pythonhosted.org/packages/1e/60/847a21339f095c4d4c655af31fa2d18b174585bcc210709facacc7ce205c/nh3-0.3.7-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:eae64328e46a25785535afcb6885b6f182ecaf5ee8c88f8c075422db8aacc65b", size = 820463, upload-time = "2026-08-23T14:25:56.803Z" },
+    { url = "https://files.pythonhosted.org/packages/7b/7f/1a103e00aaf5e59f2dee4c2709aac609bb2d4bb74fddaf0dcfade11ed87b/nh3-0.3.7-cp314-cp314t-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:4968fe8d2db97c6f047659bf46a449fd8ec377f44ebf3e0a1b96c0d3a333ae32", size = 861456, upload-time = "2026-08-23T14:25:58.087Z" },
+    { url = "https://files.pythonhosted.org/packages/d8/4a/e9c436089a0c80b928011ead0efd156aa7639a19b6064ef58dcedcab8369/nh3-0.3.7-cp314-cp314t-musllinux_1_2_aarch64.whl", hash = "sha256:be53a4825585f701955cb9baf49f478f56eb81e20294329fe4bc689dd5dd81fa", size = 1023930, upload-time = "2026-08-23T14:25:59.465Z" },
+    { url = "https://files.pythonhosted.org/packages/04/5c/aa1468e3e281e78d2b3b7d762ccba59f681af355e971dbd255d5903f7b86/nh3-0.3.7-cp314-cp314t-musllinux_1_2_armv7l.whl", hash = "sha256:94fd6e59553fbb9ffd8ba71bbd5a54e3126ba01799a097ae30d5341d750bc6ac", size = 1102614, upload-time = "2026-08-23T14:26:00.869Z" },
+    { url = "https://files.pythonhosted.org/packages/6a/9f/57d186d9d3dd38905dc12dddb3484406cdf6aa0b1ce33639a2d277d4ee1c/nh3-0.3.7-cp314-cp314t-musllinux_1_2_i686.whl", hash = "sha256:18f4278ecd157d43cb35acd5aae9f35cfa79f546b4922bd86536adc0f6312102", size = 1059915, upload-time = "2026-08-23T14:26:02.388Z" },
+    { url = "https://files.pythonhosted.org/packages/6b/53/097a5ad0b34b15d67a472ef849165a54209fa5fbd3e639801c6fe439ba28/nh3-0.3.7-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:808def0c8c07843e6e50dc84f532457bfa2cfd17417b219a5d9e7c773709331a", size = 1047402, upload-time = "2026-08-23T14:26:03.897Z" },
+    { url = "https://files.pythonhosted.org/packages/9a/a7/c57a2c70534418310889a65ccfac3525e62f0bc0a8613225903403755ce7/nh3-0.3.7-cp314-cp314t-win32.whl", hash = "sha256:874b7d67a067bd29a59223f6270fc30da4edd8e6d87fd219fc93bcbaa662c946", size = 619895, upload-time = "2026-08-23T14:26:05.105Z" },
+    { url = "https://files.pythonhosted.org/packages/e6/b7/efda1d0a611d940bdfde6893bde1ea6b7b7d48c31273aea48e35b822fd58/nh3-0.3.7-cp314-cp314t-win_amd64.whl", hash = "sha256:614dac4a4c36ad084e78447d16fe898dedd762e354a7ab9cda2984e82f67883d", size = 633456, upload-time = "2026-08-23T14:26:06.661Z" },
+    { url = "https://files.pythonhosted.org/packages/1d/18/3ab564595cb88196f50d26e163ed0fd2acc731ab26ac615df91981885887/nh3-0.3.7-cp314-cp314t-win_arm64.whl", hash = "sha256:157ec1eb7a62f3d9a7badb8d82d89aa810e3e24e097eedfa481a25d0c8a99877", size = 611003, upload-time = "2026-08-23T14:26:07.813Z" },
+    { url = "https://files.pythonhosted.org/packages/94/0d/c257754bf57f829f307aa226bbe136d3a1356b5a0d08324c7b6bd2a8aacd/nh3-0.3.7-cp38-abi3-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:6c3aa50eb26e9228238271db9f983cbc3b006dfbfeca2d4dc34c33ddc6ac5ea5", size = 1493959, upload-time = "2026-08-23T14:26:09.025Z" },
+    { url = "https://files.pythonhosted.org/packages/07/42/a687e7091928806e514f89fa2666f25ec9bfe0a902fc4402b25e51ce408b/nh3-0.3.7-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f266d3f1b3647449923a8e406524632220dd5d8b647078dfe45b885d33d10479", size = 859615, upload-time = "2026-08-23T14:26:10.606Z" },
+    { url = "https://files.pythonhosted.org/packages/85/05/b0e6bef633549a23347d5462aa288fcc42381e7918482062ca3cb456242a/nh3-0.3.7-cp38-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:e8fd1ab205258b29254f72db377d99e2c96aa7653ef3b015ccab0420b094b506", size = 839872, upload-time = "2026-08-23T14:26:12.037Z" },
+    { url = "https://files.pythonhosted.org/packages/17/40/2a0921d45b20828708bcb56887e47dcf8cae13818de5bf9a01308d348712/nh3-0.3.7-cp38-abi3-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:19f288c938ec6eef1f5d2c6cab47838e71fef8097e1c1233802be5a6230ba086", size = 1091325, upload-time = "2026-08-23T14:26:13.34Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/d1/9d70e0e418a48280ec0ddc6c1b08b4b1136ebcc31a1625e57ff5c665fa51/nh3-0.3.7-cp38-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:de2b2aab32ea303405debefdcfc58043d3e635fa3f67b9eb140d2b0e0c0d2563", size = 1042482, upload-time = "2026-08-23T14:26:14.667Z" },
+    { url = "https://files.pythonhosted.org/packages/93/a7/02dd159d4e71f98607d8d4249cddb7561e77be1a8e4dec77d76e1b68fc99/nh3-0.3.7-cp38-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:9b7279d43323a25225df23576af6594a16693f61431170848b8b2ac21ad4f174", size = 946868, upload-time = "2026-08-23T14:26:16.094Z" },
+    { url = "https://files.pythonhosted.org/packages/a6/ed/c5510c615dce55b6fcc364aa1838142f938beed64f5e4927490dfcaf4405/nh3-0.3.7-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:70f5ac8626e899a4bab0ef74ca2f5bd602f49c7b739e6e5026b4afc6d63dac42", size = 832161, upload-time = "2026-08-23T14:26:17.272Z" },
+    { url = "https://files.pythonhosted.org/packages/7b/e3/3212c1a5b5745245d7f18885207bbddb34c56075f34dd682bd539aad55cc/nh3-0.3.7-cp38-abi3-manylinux_2_31_riscv64.whl", hash = "sha256:5ffdfcb9a686ffb12765376bcfb6b5b55728516d3c0ee317d29982381ded3df8", size = 849791, upload-time = "2026-08-23T14:26:18.498Z" },
+    { url = "https://files.pythonhosted.org/packages/20/64/9e36594efad6c290de4240d02cb2bd80c339a4ab1c4de66e599ffa6d9d81/nh3-0.3.7-cp38-abi3-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:bc42bb1193c1e28a1e74c2cabaca178e118a7103e8832699fef8a2b3e2496493", size = 875473, upload-time = "2026-08-23T14:26:19.908Z" },
+    { url = "https://files.pythonhosted.org/packages/00/0c/1a8985fd43fea5530c0ac890b6f0b423770ee72f111b70b7a77f2dec243a/nh3-0.3.7-cp38-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:d56e76bd3cadb09b6b0cef364850811663734b348a25f5f587a2819c495367bd", size = 1036463, upload-time = "2026-08-23T14:26:21.536Z" },
+    { url = "https://files.pythonhosted.org/packages/b2/5d/891e533b716cf00df76ad0ba6485dcfd14d59a6430a3cc99057c4c04004e/nh3-0.3.7-cp38-abi3-musllinux_1_2_armv7l.whl", hash = "sha256:fd4a70efb45d5372174f718878eb7a35c12677626a63b2f103b23b833457dcac", size = 1116029, upload-time = "2026-08-23T14:26:22.907Z" },
+    { url = "https://files.pythonhosted.org/packages/42/e5/ae8c0782fce74fb6fcf7234bb3d4017f37ce181b4f9d29369eab21c50a04/nh3-0.3.7-cp38-abi3-musllinux_1_2_i686.whl", hash = "sha256:15f5fbf090f5c88d61c820e1fc1fceecb6520cca9fe85649c06b57ef9dc9ff62", size = 1076589, upload-time = "2026-08-23T14:26:24.302Z" },
+    { url = "https://files.pythonhosted.org/packages/26/a4/c3423351e8d864ad756e85e15f0c01433361f14d34e4ed156482c0518f2a/nh3-0.3.7-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:6698a822132beedab80f131c08d8d0ac5a178ddeb488d02ca4b67716ecfac7af", size = 1058871, upload-time = "2026-08-23T14:26:25.674Z" },
+    { url = "https://files.pythonhosted.org/packages/4b/6a/478f153f1d7c0baaa3d1e8bb5fdcee3a6235f90fe44ea969a9d4e2b8c47a/nh3-0.3.7-cp38-abi3-win32.whl", hash = "sha256:6e4280115d44c3b278eef712a86748c1a723105cd79feec46952383117ab4e59", size = 630729, upload-time = "2026-08-23T14:26:26.932Z" },
+    { url = "https://files.pythonhosted.org/packages/b4/b9/34433ccb1f0fe6968dabbb7d4bf5721c6221878ef07832748c06655a6a80/nh3-0.3.7-cp38-abi3-win_amd64.whl", hash = "sha256:618e3059caf41ccdf5dcccb3fa9df4cf6e4efe23d1382a8bbfca272a8a4f8bfc", size = 644462, upload-time = "2026-08-23T14:26:28.294Z" },
+    { url = "https://files.pythonhosted.org/packages/f9/70/e140dffff6e808dc6343598df76e7e2407fd0f581de3524c75fba2e0cf24/nh3-0.3.7-cp38-abi3-win_arm64.whl", hash = "sha256:f04b7d333b27f13ca439da3cf1c75c2fba34f104969f6ce4ac8e7079699c2f4a", size = 621867, upload-time = "2026-08-23T14:26:29.547Z" },
 ]
 
 [[package]]
@@ -4391,13 +4426,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/d0/ad/fed0499ce6a338d2a03ebae59cd15093910c8875328855781952abf6c2fe/numpy-2.4.6.tar.gz", hash = "sha256:f3a3570c4a2a16746ac2c31a7c7c7b0c186b95ce902e33db6f28094ed7387dda", size = 20735807, upload-time = "2026-05-18T23:37:14.07Z" }
@@ -4540,24 +4575,21 @@ name = "onnxruntime"
 version = "1.23.2"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version == '3.13.*' and sys_platform == 'linux'",
     "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
-    "python_full_version < '3.11' and sys_platform == 'linux'",
-    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version < '3.11' and sys_platform == 'linux'",
+    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
     { name = "coloredlogs" },
     { name = "flatbuffers" },
-    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or python_full_version >= '3.14'" },
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' and python_full_version < '3.14'" },
+    { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11' or python_full_version >= '3.13'" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11' and python_full_version < '3.13'" },
     { name = "packaging" },
     { name = "protobuf" },
     { name = "sympy" },
@@ -4595,6 +4627,9 @@ resolution-markers = [
     "python_full_version >= '3.14' and sys_platform == 'linux'",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.13.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
+    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
     { name = "flatbuffers" },
@@ -6560,13 +6595,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/aa/2a/9618a122aeb2a169a28b03889a2995fe297588964333d4a7d67bdf46e147/rpds_py-2026.6.3.tar.gz", hash = "sha256:1cebd1337c242e4ec2293e541f712b2da849b29f48f0c293684b71c0632625d4", size = 64051, upload-time = "2026-06-30T07:17:53.009Z" }
@@ -6858,10 +6893,10 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -7553,12 +7588,12 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -7797,13 +7832,13 @@ version = "0.18.32"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
-    "python_full_version < '3.11' and sys_platform == 'linux'",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version < '3.11' and sys_platform == 'linux'",
+    "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version < '3.11' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version < '3.11' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -7900,7 +7935,7 @@ xlsx = [
 
 [[package]]
 name = "unstructured"
-version = "0.22.23"
+version = "0.27.6"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.14' and sys_platform == 'linux'",
@@ -7921,6 +7956,7 @@ dependencies = [
     { name = "langdetect" },
     { name = "lxml", version = "5.4.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.14'" },
     { name = "lxml", version = "6.1.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
+    { name = "nh3" },
     { name = "numba" },
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" } },
     { name = "psutil" },
@@ -7937,9 +7973,9 @@ dependencies = [
     { name = "unstructured-client", version = "0.45.0", source = { registry = "https://pypi.org/simple" } },
     { name = "wrapt" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9d/12/5960eb3d5fa2532ed5495c1c72442c022c2568c60f9c2f9fa020bac4007a/unstructured-0.22.23.tar.gz", hash = "sha256:75051c5a1dcfeca3c77149fc5e0ae5f1f0ee0fc31ec7f93bb259ce70dc4d5fb8", size = 1519424, upload-time = "2026-04-24T18:43:22.178Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/aa/49/e781ad02c6ca058258c9e3ed9a792a566ca7c6bf3b559a31b4e198a569e0/unstructured-0.27.6.tar.gz", hash = "sha256:8a5c4c04f4eb815989703492ce3a79260a1036cef31b6dc6e93591dda6065f5e", size = 1567321, upload-time = "2026-09-14T16:28:45.291Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/34/83/b72d25dd50056150a9ea8b08f0607ca3becab1c5ae368078d32a69ed82ab/unstructured-0.22.23-py3-none-any.whl", hash = "sha256:34b85c328dc8c8a10802af234429c0eab7533021fa0d07d4f3fe70387e6c65cc", size = 1575277, upload-time = "2026-04-24T18:43:19.669Z" },
+    { url = "https://files.pythonhosted.org/packages/a4/85/f5a5d38962a07f7e1aac8da1f941806f74e6a74ffe65d3b45fff9f579e14/unstructured-0.27.6-py3-none-any.whl", hash = "sha256:0f4b328dfab72d1a1d87bfdc9b452d62a9934641faaf4a543aaf926834362e84", size = 1627356, upload-time = "2026-09-14T16:28:43.4Z" },
 ]
 
 [package.optional-dependencies]
@@ -7972,7 +8008,7 @@ pdf = [
     { name = "pi-heif" },
     { name = "pikepdf" },
     { name = "pypdf" },
-    { name = "unstructured-inference", version = "1.6.9", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'win32'" },
+    { name = "unstructured-inference", version = "1.6.13", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'win32'" },
     { name = "unstructured-pytesseract" },
 ]
 ppt = [
@@ -8031,13 +8067,13 @@ resolution-markers = [
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "python_full_version == '3.13.*' and sys_platform == 'linux'",
-    "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.12.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -8092,17 +8128,11 @@ name = "unstructured-inference"
 version = "1.6.9"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.14' and sys_platform == 'linux'",
-    "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
-    "python_full_version == '3.13.*' and sys_platform == 'linux'",
     "python_full_version == '3.12.*' and sys_platform == 'linux'",
-    "python_full_version == '3.11.*' and sys_platform == 'linux'",
-    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
-    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
     "(python_full_version == '3.12.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.12.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.11.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
     "(python_full_version == '3.11.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.11.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
 ]
 dependencies = [
@@ -8111,14 +8141,13 @@ dependencies = [
     { name = "matplotlib", version = "3.11.0", source = { registry = "https://pypi.org/simple" } },
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" } },
     { name = "onnx" },
-    { name = "onnxruntime", version = "1.23.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.14'" },
-    { name = "onnxruntime", version = "1.30.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.14'" },
+    { name = "onnxruntime", version = "1.23.2", source = { registry = "https://pypi.org/simple" } },
     { name = "opencv-python" },
     { name = "pandas" },
     { name = "pypdfium2" },
     { name = "rapidfuzz" },
-    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version != '3.12.*'" },
+    { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.12.*'" },
     { name = "timm" },
     { name = "torch", version = "2.13.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux'" },
     { name = "torch", version = "2.13.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux'" },
@@ -8127,6 +8156,41 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/4b/95/f5f629b6423bda2322de272366444acaeb07f0a02819638a2f19de07077e/unstructured_inference-1.6.9.tar.gz", hash = "sha256:7accd441c78033c6dce9a5f8020098daa44d75e65d95b100f3a5779866c27bc2", size = 47863, upload-time = "2026-04-26T19:03:29.998Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/69/ff/db09009ed4cf6739ac8e155b35aa291e34bfd7b55ea6370f617e4a258025/unstructured_inference-1.6.9-py3-none-any.whl", hash = "sha256:fdb3313dfb0540f68c92c70627d366f6d0e41c30df1862d9e5c67ba6cba92c88", size = 55116, upload-time = "2026-04-26T19:03:28.363Z" },
+]
+
+[[package]]
+name = "unstructured-inference"
+version = "1.6.13"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.14' and sys_platform == 'linux'",
+    "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and sys_platform != 'darwin' and sys_platform != 'linux')",
+    "(python_full_version >= '3.14' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version >= '3.14' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+    "python_full_version == '3.13.*' and sys_platform == 'linux'",
+    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' not in platform_version and 'Darwin Kernel Version 23.' not in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and sys_platform != 'darwin' and sys_platform != 'linux')",
+    "(python_full_version == '3.13.*' and 'Darwin Kernel Version 22.' in platform_version and sys_platform == 'darwin') or (python_full_version == '3.13.*' and 'Darwin Kernel Version 23.' in platform_version and sys_platform == 'darwin')",
+]
+dependencies = [
+    { name = "accelerate" },
+    { name = "huggingface-hub" },
+    { name = "matplotlib", version = "3.11.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" } },
+    { name = "onnx" },
+    { name = "onnxruntime", version = "1.30.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "opencv-python" },
+    { name = "pandas" },
+    { name = "pdfminer-six" },
+    { name = "pypdfium2" },
+    { name = "rapidfuzz" },
+    { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" } },
+    { name = "timm" },
+    { name = "torch", version = "2.13.0", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux'" },
+    { name = "torch", version = "2.13.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "sys_platform == 'linux'" },
+    { name = "transformers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/2e/ce/1e58008b8416884edfa6d18d65b635cde892189512d2e7531f91553b34d0/unstructured_inference-1.6.13.tar.gz", hash = "sha256:4efa2f3f517370aa09166c669cdc1addee71531e95bfbec7e6e3be66be90c147", size = 50137, upload-time = "2026-06-11T22:27:33.146Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/01/c0/6598b1420605382e7ed879ff7e1d51e12cc7a82e46971c7a61c3740c77db/unstructured_inference-1.6.13-py3-none-any.whl", hash = "sha256:73b727260e4a43133276727c371b57f7d4d92c68e8a7529a28e9576755356524", size = 57451, upload-time = "2026-06-11T22:27:31.91Z" },
 ]
 
 [[package]]

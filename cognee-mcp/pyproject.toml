@@ -83,8 +83,16 @@ torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
 # because spacy has no cp314 wheel. Kept so lifting that cap is a one-line
 # change once spacy publishes one.
 constraint-dependencies = [
-    "onnxruntime<=1.23.2 ; python_version < '3.14'",
-    "onnxruntime>=1.24.1 ; python_version >= '3.14'",
+    # onnxruntime 1.24.x dropped cp310 wheels (the MCP CI step uses Python
+    # 3.10), so cap it there; cp313/cp314 wheels exist from 1.24.4/1.25.
+    "onnxruntime<=1.23.2 ; python_version < '3.13'",
+    "onnxruntime>=1.25.0 ; python_version >= '3.13'",
+    # unstructured < 0.24.0 carries CVE-2026-71428 (SSRF in URL-based
+    # partitioners). 0.24+ needs lxml>=5, which cognee only permits on
+    # Python >=3.13, so the floor covers exactly the arms that can take it
+    # (including the python:3.14 MCP image); 3.10-3.12 keep their pinned
+    # lines (cognee's own lxml<5 cap there is the blocker).
+    "unstructured>=0.24.0 ; python_version >= '3.13'",
 ]
 
 # Note: exclude newer packages that are less than 2 days old
