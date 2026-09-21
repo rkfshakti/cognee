@@ -23,6 +23,14 @@ env:
 
 jobs:
   prepare-merged-branches:
+    # Canonical repo only for scheduled runs: the workflow checks out the
+    # `dev` integration branch, which does not exist on a fork, so the
+    # checkout step fails every night on forks. The downstream jobs also
+    # need upstream-only secrets (REPO_DISPATCH_PAT_TOKEN to push to
+    # topoteretes/cognee-docs, ANTHROPIC_API_KEY/OPENAI_API_KEY), which a
+    # fork cannot provide. workflow_dispatch stays available everywhere so
+    # a feature branch can still be dry-run.
+    if: github.repository == 'topoteretes/cognee' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     outputs:
@@ -450,7 +458,10 @@ jobs:
     needs:
       - prepare-merged-branches
       - create-docs-prs
-    if: ${{ failure() }}
+    # Same canonical-repo gate as prepare-merged-branches: this job checks
+    # out `dev` and needs upstream SMTP secrets, neither of which exists on
+    # a fork.
+    if: ${{ failure() && (github.repository == 'topoteretes/cognee' || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-22.04
     steps:
       - name: Check out repository
