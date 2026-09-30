@@ -93,6 +93,11 @@ constraint-dependencies = [
     # (including the python:3.14 MCP image); 3.10-3.12 keep their pinned
     # lines (cognee's own lxml<5 cap there is the blocker).
     "unstructured>=0.24.0 ; python_version >= '3.13'",
+    # PyJWT < 2.14.0 carries CVE-2026-102268 (CRITICAL, fixed in 2.14.0).
+    # Reached transitively via fastapi-users and mcp, neither of which
+    # floors it, so the scheduled Trivy gate reddened on the 2.13.0 the
+    # lock had pinned. Floor every arm; 2.14.0 predates the 2-day window.
+    "pyjwt>=2.14.0",
 ]
 
 # Note: exclude newer packages that are less than 2 days old
