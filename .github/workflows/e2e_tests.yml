@@ -136,7 +136,8 @@ jobs:
     name: Keyless e2e — GLiNER + fastembed, no LLM key
     # Bare runner on purpose: the ci-image carries pre-installed extras and
     # secrets-shaped config, and this job has to prove the install a new user
-    # gets — core deps plus `cognee[gliner]`, nothing configured.
+    # gets — core deps only, nothing configured. The first cognify installs the
+    # GLiNER runtime itself (CPU torch + the gliner extra, gliner_demo/install.py).
     runs-on: ubuntu-22.04
     env:
       # The workflow-level skip disables the keyless rerouting as well
@@ -153,7 +154,7 @@ jobs:
         with:
           python-version: '3.12.x'
           base-extras: ''
-          extra-dependencies: gliner
+          extra-dependencies: ''
 
       # No LLM_API_KEY, no EMBEDDING_*: GRAPH_EXTRACTOR=auto must resolve to
       # GLiNER and embeddings to fastembed, and add -> cognify -> search ->
@@ -164,6 +165,16 @@ jobs:
       # REST default search types once they are keyless-aware (SDK-690).
       - name: Run keyless e2e
         run: uv run python ./cognee/tests/e2e/keyless/keyless_ingest_check.py
+
+      # Every stored chunk must fit the embedding model's window and be embedded
+      # whole: with the default model, with a model whose tokenizer.json stores a
+      # truncation length, and with one that stores a fixed padding length (SDK-810).
+      - name: Run chunk token budget check (default model)
+        run: uv run python ./cognee/tests/e2e/keyless/chunk_token_budget_check.py
+      - name: Run chunk token budget check (snowflake-arctic-embed-xs)
+        run: uv run python ./cognee/tests/e2e/keyless/chunk_token_budget_check.py snowflake/snowflake-arctic-embed-xs
+      - name: Run chunk token budget check (all-MiniLM-L6-v2)
+        run: uv run python ./cognee/tests/e2e/keyless/chunk_token_budget_check.py sentence-transformers/all-MiniLM-L6-v2
 
       # A cognify run SIGKILLed after two documents, a second run, then startup
       # recovery: the two completed documents must survive and the run must be
