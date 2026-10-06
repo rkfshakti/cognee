@@ -91,7 +91,11 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 RUN --mount=type=cache,target=/root/.cache/uv \
     /app/.venv/bin/python -m cognee.tasks.graph.gliner_demo.install
 
-FROM python:3.12-slim-bookworm@sha256:782412e85d0f0984994c290652577d4018aff08145c85b262bb63dc0c7522254
+# Rebuilt 2026-10-06T02:04Z (snapshot 2026-10-05): the Oct-6 Debian bookworm-security
+# update shipped perl 5.36.0-7+deb12u4 (CVE-2026-13221, CVE-2026-42496, CVE-2026-8376,
+# all CRITICAL in Trivy); the previous pin (782412e8, built 09-01) still had deb12u3
+# and the scheduled Trivy gate reddened on it.
+FROM python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
 
 RUN apt-get update && apt-get install -y \
     libpq5 \
